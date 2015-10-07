@@ -72,6 +72,7 @@
     "predevelop": "npm run build",
     "start": "grunt serve:dist",
     "build": "grunt build",
+    "postinstall": "bower install && grunt build",
     "develop": "grunt serve"
   }
 }
