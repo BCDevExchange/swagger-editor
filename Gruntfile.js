@@ -12,6 +12,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'bower-install-simple',
       'wiredep',
       'less:server',
       'autoprefixer',
@@ -48,6 +49,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'bower-install-simple',
     'wiredep',
     'useminPrepare',
     'less',
@@ -73,4 +75,5 @@ module.exports = function (grunt) {
     'gh-pages',
     'shell:publish'
   ]);
+  
 };
