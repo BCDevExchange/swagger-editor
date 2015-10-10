@@ -11,11 +11,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
-      'clean:server',
-      'bower-install-simple',
-      'wiredep',
-      'less:server',
-      'autoprefixer',
+      'build:dev',
       'connect:livereload',
       'watch'
     ]);
@@ -47,22 +43,32 @@ module.exports = function (grunt) {
     ]
   );
 
-  grunt.registerTask('build', [
-    'clean:dist',
-    'bower-install-simple',
-    'wiredep',
-    'useminPrepare',
-    'less',
-    'concurrent:dist',
-    'autoprefixer',
-    'concat',
-    'ngAnnotate',
-    'copy:dist',
-    'cssmin',
-    'uglify',
-    'usemin',
-    'htmlmin'
-  ]);
+  grunt.registerTask('build', function (target) {
+    if (target === 'dev') {
+      return grunt.task.run([
+        'clean:server',
+        'bower-install-simple',
+        'wiredep',
+        'less:server',
+        'autoprefixer'
+      ]);
+    }
+    grunt.task.run([
+      'clean:dist',
+      'bower-install-simple',
+      'wiredep',
+      'useminPrepare',
+      'less',
+      'concurrent:dist',
+      'autoprefixer',
+      'concat',
+      'ngAnnotate',
+      'copy:dist',
+      'cssmin',
+      'uglify',
+      'usemin',
+      'htmlmin']);
+  });
 
   grunt.registerTask('default', [
     'newer:jshint',
@@ -75,5 +81,5 @@ module.exports = function (grunt) {
     'gh-pages',
     'shell:publish'
   ]);
-  
+
 };
