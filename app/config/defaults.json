@@ -35,8 +35,8 @@
   "useYamlBackend": false,
   "disableFileMenu": false,
   "headerBranding": false,
-  "disableNewUserIntro": false,
+  "disableNewUserIntro": true,
   "enableTryIt": true,
   "brandingCssClass": "",
-  "importProxyUrl": "../../api/proxy/"
+  "importProxyUrl": "https://cors-it.herokuapp.com/?url="
 }
