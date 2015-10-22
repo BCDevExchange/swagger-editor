@@ -145,5 +145,15 @@ var defaults = {
    * it possible to import contents that are not allowed to be loaded from a
    * different origin. If you're hosting your own editor, please replace this
   */
-  importProxyUrl: 'https://cors-it.herokuapp.com/?url='
+  importProxyUrl: 'https://cors-it.herokuapp.com/?url=',
+
+  /*
+   * If Editor is offered in HTTPS protocol, then most browsers will block 
+   * api explorer "Try this operation" if API protocol is HTTP due to mixed 
+   * content restriction. To get around, implement a proxy with HTTPS end point
+   * and specify the end point in tryOperationProxyUrl. The API target URL will 
+   * be appended to tryOperationProxyUrl to form the full request URL.
+   * The proxy URL will not be exposed to GUI. 
+  */
+  tryOperationProxyUrl: '/api/proxy/'
 };

@@ -805,7 +805,7 @@ SwaggerEditor.controller('TryOperation', function ($scope, formdataFilter,
       'Referer', 'User-Agent', 'Cache-Control', 'Content-Length'];
 
     $.ajax({
-      url: $scope.generateUrl(),
+      url: (window.SwaggerEditor.$defaults.tryOperationProxyUrl || '') + $scope.generateUrl(),
       type: $scope.operationName,
       headers: _.omit($scope.getHeaders(), omitHeaders),
       data: $scope.getRequestBody(),
