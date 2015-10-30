@@ -484,7 +484,8 @@ SwaggerEditor.controller('TryOperation', function ($scope, formdataFilter,
 
     // if this parameter is not provided (empty string value) by user and it's
     // not required, move to next parameter without adding this one to the hash
-    if (param.type === 'string' && paramValue === '' && !required) {
+    if (param.type === 'string' && !required && (paramValue === undefined
+      || paramValue === null || paramValue === '')) {
       return hash;
     }
 
